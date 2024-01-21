@@ -5,12 +5,12 @@ package Dominio;
  * @author Erick Labrada
  */
 
-//Can be either an abstract class or an interface, in this case
-//I need to "instance" a beverage so I'll have to go w interface
 public abstract class Beverage {
 
     public String description;
     public float cost;
+    public boolean isWrapped;
+
 
     public String getDescription() {
         return description;
@@ -30,7 +30,7 @@ public abstract class Beverage {
 
     @Override
     public String toString() {
-        return "Beverage name: " + description + "\ncost:" + cost +"$";
+        return "\nDescription: "+ description;
     }
 
 }

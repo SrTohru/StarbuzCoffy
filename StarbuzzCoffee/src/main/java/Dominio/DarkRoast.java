@@ -11,7 +11,7 @@ package Dominio;
 public class DarkRoast extends Beverage {
 
    public DarkRoast(){
-        this.description = "DarkRoast\nExtra ingredients:";
+        this.description = "DarkRoast\nExtra";
         this.cost = 45;
     }
 }

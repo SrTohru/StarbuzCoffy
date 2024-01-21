@@ -10,14 +10,32 @@ package Dominio;
  */
 public class BeverageDecorator extends Beverage{
     
-    Beverage wrapper;
-    int amount;
-    float costPerAmount;
-
+    public Beverage wrapper;
+    public int amount;
+    public float costPerAmount;
+    
     public BeverageDecorator(Beverage wrapper, int amount, float costPerAmount) {
         this.wrapper = wrapper;
-        this.amount = amount;
-        this.costPerAmount = costPerAmount;
+        this.amount=amount;
+        this.costPerAmount=costPerAmount;
+        wrapper.isWrapped=true;
+    }   
+    
+    @Override
+    public float getCost(){
+        return this.cost+wrapper.getCost();
+    }
+    
+    @Override
+    public String toString() {
+        
+        String s=  wrapper+description+", Cost: "+cost+"\n";
+        
+        if (this.isWrapped){
+            return s;
+        } else {
+            return s+"---------------------------------------\nTotal: "+getCost()+"\n";
+        }
     }
     
 }

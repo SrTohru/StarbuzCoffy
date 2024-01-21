@@ -12,15 +12,16 @@ public class SoyDecorator extends BeverageDecorator {
 
     public SoyDecorator(Beverage wrapper,int amount) {
         super(wrapper,amount,1.5f);
+        addSoy();
     }
 
 
     private void setDescription() {
-        wrapper.description = wrapper.getDescription() +"\n   "+amount+" cups of soy";
+        this.description = amount+" cups of soy";
     }
 
     private void setCost() {
-        wrapper.cost = wrapper.getCost() + costPerAmount*amount;
+        this.cost =costPerAmount*amount;
     }
     
     public void addSoy(){

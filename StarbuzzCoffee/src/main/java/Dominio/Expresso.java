@@ -11,7 +11,7 @@ package Dominio;
 public class Expresso extends Beverage{
     
     public Expresso(){
-        this.description = "Expresso\nExtra ingredients:";
+        this.description = "Expresso\nExtra ingredients:\n";
         this.cost = 40;
     }
 }

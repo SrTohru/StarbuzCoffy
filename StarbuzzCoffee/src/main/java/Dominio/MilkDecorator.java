@@ -12,15 +12,16 @@ public class MilkDecorator extends BeverageDecorator {
 
     public MilkDecorator(Beverage wrapper,int amount) {
         super(wrapper,amount,1.0f);
+        addMilk();
     }
 
 
     private void setDescription() {
-        wrapper.description = wrapper.getDescription() +"\n   "+amount+" cups of milk";
+        this.description = amount+" cups of milk";
     }
 
     private void setCost() {
-        wrapper.cost = wrapper.getCost() + costPerAmount*amount;
+        this.cost = costPerAmount*amount;
     }
     
     public void addMilk(){

@@ -12,15 +12,16 @@ public class WhippedCreamDecorator extends BeverageDecorator {
 
     public WhippedCreamDecorator(Beverage wrapper,int amount) {
         super(wrapper,amount,.5f);
+        addWhippedCream();
     }
 
 
     private void setDescription() {
-        wrapper.description = wrapper.getDescription() +"\n   "+amount+" portions of whippedCream";
+        this.description = amount+" portions of whippedCream";
     }
 
     private void setCost() {
-        wrapper.cost = wrapper.getCost() + costPerAmount*amount;
+        this.cost = costPerAmount*amount;
     }
     
     public void addWhippedCream(){
