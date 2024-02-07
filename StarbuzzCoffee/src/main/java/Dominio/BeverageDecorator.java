@@ -19,7 +19,20 @@ public class BeverageDecorator extends Beverage{
         this.amount=amount;
         this.costPerAmount=costPerAmount;
         wrapper.isWrapped=true;
+        
+        unifyDecoratorLayers(amount);
+        
     }   
+    
+    public void unifyDecoratorLayers(int amount){
+                    System.out.println(this.amount);
+
+        if (wrapper.getClass().equals(this.getClass())){
+            this.amount=this.amount+amount;
+        }
+                System.out.println(this.amount);
+
+    }
     
     @Override
     public float getCost(){

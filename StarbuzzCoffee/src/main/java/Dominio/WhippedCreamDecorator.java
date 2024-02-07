@@ -12,6 +12,7 @@ public class WhippedCreamDecorator extends BeverageDecorator {
 
     public WhippedCreamDecorator(Beverage wrapper,int amount) {
         super(wrapper,amount,.5f);
+        
         addWhippedCream();
     }
 

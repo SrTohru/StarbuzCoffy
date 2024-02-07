@@ -6,7 +6,6 @@ package Dominio;
  */
 public class Demo {
 
-
     public static void main(String[] args) {
 
         test();
@@ -23,11 +22,12 @@ public class Demo {
         
         ChocolateDecorator chocolateDecorator = new ChocolateDecorator(soyDecorator, 2);
         
-        System.out.println(chocolateDecorator);
+        WhippedCreamDecorator whippedCreamDecorator = new WhippedCreamDecorator(chocolateDecorator,2);
+        System.out.println("-----------------------");
+        WhippedCreamDecorator whippedCreamDecorator2 = new WhippedCreamDecorator(whippedCreamDecorator,1);
         
-
-        
+        System.out.println(whippedCreamDecorator2);
+           
     }
-
     
 }
