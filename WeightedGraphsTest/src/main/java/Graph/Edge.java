@@ -1,0 +1,50 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Graph;
+
+import Domain.Player;
+
+/**
+ *
+ * @author HP 240 G8
+ */
+public class Edge {
+    private Player player;
+    private Node begginingNode;
+    private Node endingNode;
+
+    public Edge(Player player, Node begginingNode, Node endingNode) {
+        this.player = player;
+        this.begginingNode = begginingNode;
+        this.endingNode = endingNode;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Node getBegginingNode() {
+        return begginingNode;
+    }
+
+    public void setBegginingNode(Node begginingNode) {
+        this.begginingNode = begginingNode;
+    }
+
+    public Node getEndingNode() {
+        return endingNode;
+    }
+
+    public void setEndingNode(Node endingNode) {
+        this.endingNode = endingNode;
+    }
+    
+    
+    
+}
