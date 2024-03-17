@@ -11,15 +11,9 @@ import Graph.Node;
  *
  * @author HP 240 G8
  */
-public interface iNodeBuilder {
+public interface iGraphManager {
     
-    public void setUpperEdge(Edge edge);
-    public void setDownEdge(Edge edge);
-    public void setLeftEdge(Edge edge);
-    public void setRightEdge(Edge edge);
-    public void setID();
-    public Node getProduct();
-    public void reset();
-    
-    
+    public void joinHorizontalNodes(Node nodeBeggining, Node nodeEnding);
+    public void joinVerticalNodes(Node nodeBeggining, Node nodeEnding);
+
 }

@@ -11,10 +11,10 @@ package Graph;
 public class Node {
     
     private int id;
-    private Node upperNode;
-    private Node downNode;
-    private Node leftNode;
-    private Node rightNode;
+    private Edge upperEdge;
+    private Edge downEdge;
+    private Edge leftEdge;
+    private Edge rightEdge;
 
     public int getId() {
         return id;
@@ -24,36 +24,38 @@ public class Node {
         this.id = id;
     }
 
-    public Node getUpperNode() {
-        return upperNode;
+    public Edge getUpperEdge() {
+        return upperEdge;
     }
 
-    public void setUpperNode(Node upperNode) {
-        this.upperNode = upperNode;
+    public void setUpperEdge(Edge upperEdge) {
+        this.upperEdge = upperEdge;
     }
 
-    public Node getDownNode() {
-        return downNode;
+    public Edge getDownEdge() {
+        return downEdge;
     }
 
-    public void setDownNode(Node downNode) {
-        this.downNode = downNode;
+    public void setDownEdge(Edge downEdge) {
+        this.downEdge = downEdge;
     }
 
-    public Node getLeftNode() {
-        return leftNode;
+    public Edge getLeftEdge() {
+        return leftEdge;
     }
 
-    public void setLeftNode(Node leftNode) {
-        this.leftNode = leftNode;
+    public void setLeftEdge(Edge leftEdge) {
+        this.leftEdge = leftEdge;
     }
 
-    public Node getRightNode() {
-        return rightNode;
+  
+
+    public Edge getRightEdge() {
+        return rightEdge;
     }
 
-    public void setRightNode(Node rightNode) {
-        this.rightNode = rightNode;
+    public void setRightEdge(Edge rightEdge) {
+        this.rightEdge = rightEdge;
     }
 
   

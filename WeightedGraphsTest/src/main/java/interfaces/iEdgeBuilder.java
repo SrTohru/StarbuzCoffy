@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import Domain.Player;
 import Graph.Edge;
 import Graph.Node;
 
@@ -11,15 +12,13 @@ import Graph.Node;
  *
  * @author HP 240 G8
  */
-public interface iNodeBuilder {
+public interface iEdgeBuilder {
     
-    public void setUpperEdge(Edge edge);
-    public void setDownEdge(Edge edge);
-    public void setLeftEdge(Edge edge);
-    public void setRightEdge(Edge edge);
-    public void setID();
-    public Node getProduct();
+    
+ 
+    public void setNodes(Node beginning, Node ending);
+    public void setPlayer(Player player);
+    public Edge getProduct();
     public void reset();
-    
     
 }

@@ -2,8 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Graph;
 
+package Graph;
 import Domain.Player;
 
 /**
@@ -15,10 +15,10 @@ public class Edge {
     private Node begginingNode;
     private Node endingNode;
 
-    public Edge(Player player, Node begginingNode, Node endingNode) {
-        this.player = player;
-        this.begginingNode = begginingNode;
-        this.endingNode = endingNode;
+    
+    
+    public Edge() {
+
     }
 
     public Player getPlayer() {

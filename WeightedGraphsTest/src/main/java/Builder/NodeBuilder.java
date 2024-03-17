@@ -22,23 +22,23 @@ public class NodeBuilder implements iNodeBuilder{
     }
     
     @Override
-    public void setUpperNode(Node node) {
-        product.setUpperNode(node);
+    public void setUpperEdge(Edge edge) {
+        product.setUpperEdge(edge);
     }
 
     @Override
-    public void setDownNode(Node node) {
-        product.setDownNode(node);
+    public void setDownEdge(Edge edge) {
+        product.setDownEdge(edge);
     }
 
     @Override
-    public void setLeftNode(Node node) {
-        product.setLeftNode(node);
+    public void setLeftEdge(Edge edge) {
+        product.setLeftEdge(edge);
     }
 
     @Override
-    public void setRightNode(Node node) {
-        product.setRightNode(node);
+    public void setRightEdge(Edge edge) {
+        product.setRightEdge(edge);
     }
 
     @Override

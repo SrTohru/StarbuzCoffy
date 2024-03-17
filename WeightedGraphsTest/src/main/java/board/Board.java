@@ -4,8 +4,10 @@
  */
 package board;
 
+import Builder.EdgeBuilder;
 import Builder.NodeBuilder;
 import Graph.Node;
+import Utilities.GraphManager;
 import java.util.List;
 
 /**
@@ -17,6 +19,8 @@ public class Board {
     private Square[][] boardArray;
     private List<Node> nodeList;
     private NodeBuilder nodeBuilder = new NodeBuilder();
+    private GraphManager graphManager = new GraphManager();
+    private EdgeBuilder edgeBuilder = new EdgeBuilder();
 
     public void createSmallBoard() {
 
@@ -53,46 +57,37 @@ public class Board {
 
                 //Sets then upper node to null if the tempNode belongs to the first row
                 if (i == 0) {
-                    tempNode.setUpperNode(null);
                     //i+2*j+1 gives the index of the item in the row below
-                    tempNode.setDownNode(nodeList.get(i + 2 * j + 1));
+                    edgeBuilder.setNodes(null, nodeList.get(i + 2 * j + 1));
+
                 } else {
                     //Sets then down node to null if the tempNode belongs to the last row
                     if (i == boardArray.length - 1) {
-                        tempNode.setDownNode(null);
+                        edgeBuilder.setNodes(nodeList.get(i + 3 * j + 1), null);
                         //i+3*j+1 gives the index of the item in the upper row
-                        tempNode.setUpperNode(nodeList.get(i + 3 * j + 1));
                     } else {
                         //i+3*j+1 gives the index of the item in the upper row
-                        tempNode.setUpperNode(nodeList.get(i + 3 * j + 1));
                         //i+2*j+1 gives the index of the item in the row below
-                        tempNode.setDownNode(nodeList.get(i + 2 * j + 1));
+                        edgeBuilder.setNodes(nodeList.get(i + 3 * j + 1), nodeList.get(i + 4 * j + 1));
                     }
+                }
+                //Sets then Left node to null if the tempNode belongs to the first column
+                if (j == 0) {
+                    //i+4*j+2 gives the index of the previous item
+                    edgeBuilder.setNodes(null, nodeList.get(i + 4 * j + 2));
+                } else if (j == boardArray.length - 1) {
+                    //Sets then Right node to null if the tempNode belongs to the last column
 
-                    //Sets then Left node to null if the tempNode belongs to the first column
-                    if (j == 0) {
-                        tempNode.setLeftNode(null);
-                        //i+4*j+2 gives the index of the previous item
-                        tempNode.setRightNode(nodeList.get(i + 4 * j + 2));
-                    } else {
-                        //Sets then Right node to null if the tempNode belongs to the last column
-                    }
-                    if (j == boardArray.length - 1) {
-                        tempNode.setRightNode(null);
-                        //i+4*j gives the index of the previous item
-                        tempNode.setLeftNode(nodeList.get(i + 4 * j));
-                    } else {
-                        //i+4*j gives the index of the previous item
-                        tempNode.setLeftNode(nodeList.get(i + 4 * j));
-                        //i+4*j+2 gives the index of the previous item
-                        tempNode.setRightNode(nodeList.get(i + 4 * j + 2));
-                    }
+                    edgeBuilder.setNodes(nodeList.get(i + 4 * j), null);
+
+                } else {
+                    //i+4*j gives the index of the previous item
+                    //i+4*j+2 gives the index of the previous item
+                    edgeBuilder.setNodes(nodeList.get(i + 4 * j), nodeList.get(i + 4 * j + 2));
                 }
                 nodeList.set(i + 4 * j + 1, tempNode);
             }
+
         }
     }
-    
-    
-    
 }
