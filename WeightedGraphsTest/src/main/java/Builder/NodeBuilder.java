@@ -18,7 +18,8 @@ public class NodeBuilder implements iNodeBuilder{
     private int id;
 
     public NodeBuilder() {
-        id=0;
+        product=new Node();
+        id=1;
     }
     
     @Override
@@ -44,6 +45,7 @@ public class NodeBuilder implements iNodeBuilder{
     @Override
     public void setID() {
         product.setId(id);
+        id++;
     }
 
     @Override

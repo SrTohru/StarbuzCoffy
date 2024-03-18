@@ -4,6 +4,9 @@
  */
 package Main;
 
+import Graph.Node;
+import board.Board;
+import board.Square;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,20 +21,26 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        List<String> list = new ArrayList();
-        list.add("A");
-        list.add("B");
-        list.add("C");
-        list.add("D");
-        list.add("E");
+        Board board = new Board();
         
-        System.out.println(list);
-        
-        list.set(0, "Z");
-        System.out.println(list);
+        board.createSmallBoard();
+        List<Node> nodeList = board.getBoardNodes();
+        Square[][] boardArray = board.getBoardArray();
         
         
-
+        //System.out.println(boardArray.length);
+        
+        for (int i = 0; i < boardArray.length; i++) {
+            for (int j = 0; j < boardArray[0].length; j++) {
+                //System.out.println("\nCoords:\nX:"+i+"Y:"+j);
+                //I = X Coords
+                //J = Y Coords
+                //X+4Y+1 = Index
+               System.out.println("ID:"+nodeList.get(i + 4 * j + 1).getId());
+                
+            }
+        }
+        
     }
     
 }

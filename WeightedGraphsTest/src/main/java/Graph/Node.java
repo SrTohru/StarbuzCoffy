@@ -48,8 +48,6 @@ public class Node {
         this.leftEdge = leftEdge;
     }
 
-  
-
     public Edge getRightEdge() {
         return rightEdge;
     }

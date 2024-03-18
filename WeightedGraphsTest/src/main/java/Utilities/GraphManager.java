@@ -17,19 +17,30 @@ import interfaces.iGraphManager;
  */
 public class GraphManager implements iGraphManager {
     
-    NodeBuilder nodeBuilder = new NodeBuilder();
     EdgeBuilder edgeBuilder = new EdgeBuilder();
 
     @Override
     public void joinVerticalNodes(Node nodeBeggining, Node nodeEnding) {
 
         edgeBuilder.setNodes(nodeBeggining, nodeEnding);
-        
+        if (nodeBeggining!=null){
+            nodeBeggining.setUpperEdge(edgeBuilder.getProduct());
+        } 
+        if (nodeEnding!=null){
+            nodeEnding.setDownEdge(edgeBuilder.getProduct());
+        }
     }
 
     @Override
     public void joinHorizontalNodes(Node nodeBeggining, Node nodeEnding) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        edgeBuilder.setNodes(nodeBeggining, nodeEnding);
+        if (nodeBeggining!=null){
+            nodeBeggining.setLeftEdge(edgeBuilder.getProduct());
+        }
+        if (nodeEnding!=null){
+            nodeEnding.setRightEdge(edgeBuilder.getProduct());
+        }
     }
     
 }

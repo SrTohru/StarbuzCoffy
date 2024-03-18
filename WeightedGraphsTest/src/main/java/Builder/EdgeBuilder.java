@@ -15,7 +15,7 @@ import interfaces.iEdgeBuilder;
  */
 public class EdgeBuilder implements iEdgeBuilder{
 
-    private Edge product;
+    private Edge product= new Edge();
     
     
     @Override
