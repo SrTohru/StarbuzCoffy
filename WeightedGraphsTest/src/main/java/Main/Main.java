@@ -38,19 +38,15 @@ public class Main {
                     System.out.print("---");
                 }
                 System.out.print("ID:" + nodeList.get(j + boardArray.length * i).getId());
-
             }
         }
         System.out.println("------------------------------------------------------");
         System.out.println("------------------------------------------------------");
         System.out.println("------------------------------------------------------");
 
-        DefaultIterator iterator = new DefaultIterator();
-        iterator.setStartingNode(nodeList.get(13));
 
-        //while (iterator.hasNext()) {
-        //    System.out.println(iterator.getNext());
-        //}
+
+        System.out.println("RIGHT:\n");
         for (int i = 0; i < boardArray.length; i++) {
             for (int j = 0; j < boardArray[0].length; j++) {
                 System.out.println();
@@ -59,10 +55,49 @@ public class Main {
                 System.out.println();
             }
         }
-
+        System.out.println("------------------------------------------------------");
+        System.out.println("Left:\n");
+        for (int i = 0; i < boardArray.length; i++) {
+            for (int j = 0; j < boardArray[0].length; j++) {
+                System.out.println();
+                System.out.println(nodeList.get(j + boardArray.length * i));
+                System.out.println(nodeList.get(j + boardArray.length * i).getLeftEdge());
+                System.out.println();
+            }
+        }
+        System.out.println("------------------------------------------------------");
+        System.out.println("UP:\n");
+        for (int i = 0; i < boardArray.length; i++) {
+            for (int j = 0; j < boardArray[0].length; j++) {
+                System.out.println();
+                System.out.println(nodeList.get(j + boardArray.length * i));
+                System.out.println(nodeList.get(j + boardArray.length * i).getUpperEdge());
+                System.out.println();
+            }
+        }
+        System.out.println("------------------------------------------------------");
+        System.out.println("Down:\n");
+        for (int i = 0; i < boardArray.length; i++) {
+            for (int j = 0; j < boardArray[0].length; j++) {
+                System.out.println();
+                System.out.println(nodeList.get(j + boardArray.length * i));
+                System.out.println(nodeList.get(j + boardArray.length * i).getDownEdge());
+                System.out.println();
+            }
+        }
         System.out.println("------------------------------------------------------");
         System.out.println("------------------------------------------------------");
         System.out.println("------------------------------------------------------");
+        
+        DefaultIterator iterator = new DefaultIterator();
+        iterator.setStartingNode(nodeList.get(13));
+        
+        //System.out.println(nodeList.get(1).getLeftEdge());
+        
+        while (iterator.hasNext()) {
+            System.out.println(iterator.getNext());
+        }
+        
     }
 
 }

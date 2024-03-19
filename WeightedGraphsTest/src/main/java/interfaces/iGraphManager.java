@@ -15,5 +15,8 @@ public interface iGraphManager {
     
     public void joinHorizontalNodes(Node nodeBeggining, Node nodeEnding);
     public void joinVerticalNodes(Node nodeBeggining, Node nodeEnding);
-
+    public void fixFirstRow(Node node);
+    public void fixLastRow(Node node);
+    public void fixFirstColumn(Node node);
+    public void fixLastColumn(Node node);
 }

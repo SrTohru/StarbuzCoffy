@@ -18,12 +18,10 @@ import java.util.List;
 public class Board {
 
     private Square[][] boardArray;
-    private List<Node> nodeList= new ArrayList();
+    private List<Node> nodeList = new ArrayList();
     private NodeBuilder nodeBuilder = new NodeBuilder();
     private GraphManager graphManager = new GraphManager();
     private EdgeBuilder edgeBuilder = new EdgeBuilder();
-
-    
 
     public void createSmallBoard() {
 
@@ -59,50 +57,46 @@ public class Board {
                 //J = X Coords
                 //N = boardArray.length
                 //X+NY+1 = Index
-
+                System.out.println("\nI: "+i+"J: "+j);
                 //Sets then upper node to null if the tempNode belongs to the first row
                 if (i == 0) {
                     //i+(n*(j-1))+1 gives the index of the item in the row below
-                    graphManager.joinVerticalNodes(null, nodeList.get(j + boardArray.length * (i+1)));
-
+                    graphManager.joinVerticalNodes(null, nodeList.get(j + boardArray.length * i));
+                    graphManager.fixFirstRow(nodeList.get(j + boardArray.length * i));
                 } else {
-                    //Sets then down node to null if the tempNode belongs to the last row
-                    if (i == boardArray.length - 1) {
-                        graphManager.joinVerticalNodes(nodeList.get(j + boardArray.length * (i-1)), null);
-                        //i+3*j+1 gives the index of the item in the upper row
-                    } else {
-                        //i+3*j+1 gives the index of the item in the upper row
-                        //i+2*j+1 gives the index of the item in the row below
-                        graphManager.joinVerticalNodes(nodeList.get(j + boardArray.length * (i-1)),nodeList.get(j + boardArray.length * (i+1)));
-                        System.out.println();
+                    //i+3*j+1 gives the index of the item in the upper row
+                    //i+2*j+1 gives the index of the item in the row below
+                    graphManager.joinVerticalNodes(nodeList.get(j + boardArray.length * (i - 1)), nodeList.get(j + boardArray.length * i));
+                    if (i==boardArray[0].length-1){
+                    graphManager.fixLastRow(nodeList.get(j + boardArray.length * i));
                     }
+                     
                 }
                 //Sets then Left node to null if the tempNode belongs to the first column
                 if (j == 0) {
                     //i+4*j+2 gives the index of the previous item
-                    graphManager.joinHorizontalNodes(null, nodeList.get(j + boardArray.length * i + 1));
-                } else if (j == boardArray.length - 1) {
-                    //Sets then Right node to null if the tempNode belongs to the last column
-
-                    graphManager.joinHorizontalNodes(nodeList.get(j + boardArray.length * i -1), null);
-
+                    graphManager.joinHorizontalNodes(null, nodeList.get(j + boardArray.length * i));
+                    graphManager.fixFirstColumn(nodeList.get(j + boardArray.length * i));
                 } else {
                     //i+4*j gives the index of the previous item
                     //i+4*j+2 gives the index of the previous item
-                    graphManager.joinHorizontalNodes(nodeList.get(j + boardArray.length * i -1), nodeList.get(j + boardArray.length * i + 1));
+                    graphManager.joinHorizontalNodes(nodeList.get(j + boardArray.length * i-1), nodeList.get(j + boardArray.length * i));
+                    if(j==boardArray[0].length-1){
+                    graphManager.fixLastColumn(nodeList.get(j + boardArray.length * i));
+                    }
                 }
                 //nodeList.set(i + 4 * j + 1, tempNode);
             }
 
         }
     }
-    
-    public List getBoardNodes(){
+
+    public List getBoardNodes() {
         return nodeList;
     }
-    
-    public Square[][] getBoardArray(){
+
+    public Square[][] getBoardArray() {
         return boardArray;
     }
-    
+
 }

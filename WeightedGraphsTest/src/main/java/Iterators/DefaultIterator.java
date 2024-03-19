@@ -47,14 +47,14 @@ public class DefaultIterator implements iGraphIterator {
     @Override
     public Boolean hasNext() {
 
-        return step < 16;
+        return step <= 16;
 
     }
 
     public void setStartingNode(Node node) {
         startingNode = node;
         currentNode = node;
-        step = 0;
+        step = 1;
     }
 
 }
