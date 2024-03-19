@@ -44,7 +44,10 @@ public class Edge {
     public void setEndingNode(Node endingNode) {
         this.endingNode = endingNode;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Edge{" + "player=" + player + ", begginingNode=" + begginingNode + ", endingNode=" + endingNode + '}';
+    }
+        
 }

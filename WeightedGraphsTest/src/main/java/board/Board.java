@@ -59,7 +59,6 @@ public class Board {
                 //J = X Coords
                 //N = boardArray.length
                 //X+NY+1 = Index
-                Node tempNode = nodeList.get(j + boardArray.length * i );
 
                 //Sets then upper node to null if the tempNode belongs to the first row
                 if (i == 0) {
@@ -75,6 +74,7 @@ public class Board {
                         //i+3*j+1 gives the index of the item in the upper row
                         //i+2*j+1 gives the index of the item in the row below
                         graphManager.joinVerticalNodes(nodeList.get(j + boardArray.length * (i-1)),nodeList.get(j + boardArray.length * (i+1)));
+                        System.out.println();
                     }
                 }
                 //Sets then Left node to null if the tempNode belongs to the first column

@@ -16,31 +16,35 @@ import interfaces.iGraphManager;
  * @author HP 240 G8
  */
 public class GraphManager implements iGraphManager {
-    
+
     EdgeBuilder edgeBuilder = new EdgeBuilder();
 
     @Override
     public void joinVerticalNodes(Node nodeBeggining, Node nodeEnding) {
-
+        
+        System.out.println("Beggining node: "+nodeBeggining);
+        System.out.println("Ending node: "+nodeEnding);
         edgeBuilder.setNodes(nodeBeggining, nodeEnding);
-        if (nodeBeggining!=null){
-            nodeBeggining.setUpperEdge(edgeBuilder.getProduct());
-        } 
-        if (nodeEnding!=null){
-            nodeEnding.setDownEdge(edgeBuilder.getProduct());
+        if (nodeBeggining != null) {
+            nodeBeggining.setDownEdge(edgeBuilder.getProduct());
         }
+        if (nodeEnding != null) {
+            nodeEnding.setUpperEdge(edgeBuilder.getProduct());
+        }
+
+        edgeBuilder.reset();
     }
 
     @Override
     public void joinHorizontalNodes(Node nodeBeggining, Node nodeEnding) {
 
         edgeBuilder.setNodes(nodeBeggining, nodeEnding);
-        if (nodeBeggining!=null){
-            nodeBeggining.setLeftEdge(edgeBuilder.getProduct());
+        if (nodeBeggining != null) {
+            nodeBeggining.setRightEdge(edgeBuilder.getProduct());
         }
-        if (nodeEnding!=null){
-            nodeEnding.setRightEdge(edgeBuilder.getProduct());
+        if (nodeEnding != null) {
+            nodeEnding.setLeftEdge(edgeBuilder.getProduct());
         }
+        edgeBuilder.reset();
     }
-    
 }
