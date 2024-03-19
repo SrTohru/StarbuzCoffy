@@ -56,6 +56,11 @@ public class Node {
         this.rightEdge = rightEdge;
     }
 
+    @Override
+    public String toString() {
+        return "Node{" + "id=" + id + '}';
+    }
+
   
 
 }

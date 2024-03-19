@@ -27,20 +27,17 @@ public class Main {
         List<Node> nodeList = board.getBoardNodes();
         Square[][] boardArray = board.getBoardArray();
         
-        
-        //System.out.println(boardArray.length);
-        
+        System.out.println("------------------------------------------------------");
+        System.out.println(nodeList);
+        System.out.println("------------------------------------------------------");
         for (int i = 0; i < boardArray.length; i++) {
             for (int j = 0; j < boardArray[0].length; j++) {
-                //System.out.println("\nCoords:\nX:"+i+"Y:"+j);
-                //I = X Coords
-                //J = Y Coords
-                //X+4Y+1 = Index
-               System.out.println("ID:"+nodeList.get(i + 4 * j + 1).getId());
+                
+               System.out.println("ID:"+nodeList.get(j + boardArray.length * i).getId());
                 
             }
         }
-        
+        System.out.println("------------------------------------------------------");
     }
     
 }

@@ -47,46 +47,49 @@ public class Board {
             for (int j = 0; j < boardArray[0].length; j++) {
                 nodeBuilder.setID();
                 nodeList.add(nodeBuilder.getProduct());
+                //System.out.println("ID:"+nodeBuilder.getProduct().getId());
                 nodeBuilder.reset();
             }
         }
 
         for (int i = 0; i < boardArray.length; i++) {
             for (int j = 0; j < boardArray[0].length; j++) {
-                //I = X Coords
-                //J = Y Coords
-                //X+4Y+1 = Index
-                Node tempNode = nodeList.get(i + 4 * j + 1);
+                //System.out.println(j + boardArray.length * i);
+                //I = Y Coords
+                //J = X Coords
+                //N = boardArray.length
+                //X+NY+1 = Index
+                Node tempNode = nodeList.get(j + boardArray.length * i );
 
                 //Sets then upper node to null if the tempNode belongs to the first row
                 if (i == 0) {
-                    //i+2*j+1 gives the index of the item in the row below
-                    graphManager.joinVerticalNodes(null, nodeList.get(i + 2 * j + 1));
+                    //i+(n*(j-1))+1 gives the index of the item in the row below
+                    graphManager.joinVerticalNodes(null, nodeList.get(j + boardArray.length * (i+1)));
 
                 } else {
                     //Sets then down node to null if the tempNode belongs to the last row
                     if (i == boardArray.length - 1) {
-                        graphManager.joinVerticalNodes(nodeList.get(i + 3 * j + 1), null);
+                        graphManager.joinVerticalNodes(nodeList.get(j + boardArray.length * (i-1)), null);
                         //i+3*j+1 gives the index of the item in the upper row
                     } else {
                         //i+3*j+1 gives the index of the item in the upper row
                         //i+2*j+1 gives the index of the item in the row below
-                        graphManager.joinVerticalNodes(nodeList.get(i + 3 * j + 1), nodeList.get(i + 4 * j + 1));
+                        graphManager.joinVerticalNodes(nodeList.get(j + boardArray.length * (i-1)),nodeList.get(j + boardArray.length * (i+1)));
                     }
                 }
                 //Sets then Left node to null if the tempNode belongs to the first column
                 if (j == 0) {
                     //i+4*j+2 gives the index of the previous item
-                    graphManager.joinHorizontalNodes(null, nodeList.get(i + 4 * j + 2));
+                    graphManager.joinHorizontalNodes(null, nodeList.get(j + boardArray.length * i + 1));
                 } else if (j == boardArray.length - 1) {
                     //Sets then Right node to null if the tempNode belongs to the last column
 
-                    graphManager.joinHorizontalNodes(nodeList.get(i + 4 * j), null);
+                    graphManager.joinHorizontalNodes(nodeList.get(j + boardArray.length * i -1), null);
 
                 } else {
                     //i+4*j gives the index of the previous item
                     //i+4*j+2 gives the index of the previous item
-                    graphManager.joinHorizontalNodes(nodeList.get(i + 4 * j), nodeList.get(i + 4 * j + 2));
+                    graphManager.joinHorizontalNodes(nodeList.get(j + boardArray.length * i -1), nodeList.get(j + boardArray.length * i + 1));
                 }
                 //nodeList.set(i + 4 * j + 1, tempNode);
             }
