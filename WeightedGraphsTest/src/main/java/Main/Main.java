@@ -4,6 +4,8 @@
  */
 package Main;
 
+import Domain.Player;
+import Graph.Edge;
 import Graph.Node;
 import Iterators.DefaultIterator;
 import board.Board;
@@ -82,17 +84,38 @@ public class Main {
                 System.out.println();
                 System.out.println(nodeList.get(j + boardArray.length * i));
                 System.out.println(nodeList.get(j + boardArray.length * i).getDownEdge());
-                System.out.println();
             }
         }
         System.out.println("------------------------------------------------------");
-        System.out.println("------------------------------------------------------");
-        System.out.println("------------------------------------------------------");
-        
         DefaultIterator iterator = new DefaultIterator();
         iterator.setStartingNode(nodeList.get(13));
         
         //System.out.println(nodeList.get(1).getLeftEdge());
+        
+        Player hinojosa = new Player("Hinojosa");
+        Player martin = new Player("Martin");
+        Player chely = new Player("Chely");
+        
+        nodeList.get(13).getRightEdge().setPlayer(hinojosa);
+        nodeList.get(14).getUpperEdge().setPlayer(hinojosa);
+        nodeList.get(9).getLeftEdge().setPlayer(hinojosa);
+        nodeList.get(8).getDownEdge().setPlayer(hinojosa);
+        
+        nodeList.get(13).getUpperEdge().setPlayer(martin);
+        nodeList.get(8).getLeftEdge().setPlayer(martin);
+        nodeList.get(7).getDownEdge().setPlayer(martin);
+        nodeList.get(12).getRightEdge().setPlayer(martin);
+        
+        nodeList.get(13).getLeftEdge().setPlayer(chely);
+        nodeList.get(12).getDownEdge().setPlayer(chely);
+        nodeList.get(17).getRightEdge().setPlayer(chely);
+        nodeList.get(18).getUpperEdge().setPlayer(chely);
+       
+        nodeList.get(13).getDownEdge().setPlayer(chely);
+        nodeList.get(18).getRightEdge().setPlayer(hinojosa);
+        nodeList.get(19).getUpperEdge().setPlayer(martin);
+        nodeList.get(14).getLeftEdge().setPlayer(hinojosa);
+                
         
         while (iterator.hasNext()) {
             System.out.println(iterator.getNext());

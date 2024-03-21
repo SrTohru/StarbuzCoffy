@@ -11,11 +11,10 @@ import Domain.Player;
  * @author HP 240 G8
  */
 public class Edge {
+    
     private Player player;
     private Node begginingNode;
     private Node endingNode;
-
-    
     
     public Edge() {
 
@@ -47,6 +46,10 @@ public class Edge {
 
     @Override
     public String toString() {
+        
+        if (player!=null){
+            return "Edge{" + "player=" + player.getName() + ", begginingNode=" + begginingNode + ", endingNode=" + endingNode + '}';
+        }
         return "Edge{" + "player=" + player + ", begginingNode=" + begginingNode + ", endingNode=" + endingNode + '}';
     }
         

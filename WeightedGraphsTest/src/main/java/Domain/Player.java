@@ -15,13 +15,11 @@ import java.util.List;
 public class Player {
     
     private String name;
-    private int weightID;
     private List<Square> squareList = new ArrayList();
     
 
-    public Player(String name, int weightID) {
+    public Player(String name) {
         this.name = name;
-        this.weightID = weightID;
     }
 
     public String getName() {
@@ -32,13 +30,6 @@ public class Player {
         this.name = name;
     }
 
-    public int getWeightID() {
-        return weightID;
-    }
-
-    public void setWeightID(int weightID) {
-        this.weightID = weightID;
-    }
 
     public List<Square> getSquareList() {
         return squareList;
