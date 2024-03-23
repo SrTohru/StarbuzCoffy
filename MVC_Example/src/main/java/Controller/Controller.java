@@ -23,8 +23,6 @@ public class Controller implements ActionListener {
         this.view = view;
     }
 
-        
-        
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -43,9 +41,6 @@ public class Controller implements ActionListener {
             double num2 = view.getSecondNumber();
             double result= model.substract(num1, num2);
             view.writteResult(String.valueOf(result));
-            
         }
-
-    }
-    
+    }   
 }
