@@ -4,6 +4,8 @@
  */
 package com.itson.graphicstest;
 
+import javax.swing.ActionMap;
+
 /**
  *
  * @author HP 240 G8
@@ -15,7 +17,11 @@ public class GameScreen extends javax.swing.JFrame {
      */
     public GameScreen() {
         initComponents();
-        //boardFrame
+        
+        ActionMap am = new ActionMap();
+        Even
+        
+        boardFrame.setActionMap(am);
 
     }
 
@@ -81,7 +87,9 @@ public class GameScreen extends javax.swing.JFrame {
     }
 
     void setController(Controller controller) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        System.out.println("Controller set");
+
     }
 
     void start() {
@@ -92,7 +100,7 @@ public class GameScreen extends javax.swing.JFrame {
 
         gameScreen.add(boardFrame);
 
-        boardFrame.setSize(251, 251);
+        boardFrame.setSize(500, 500);
         boardFrame.setLocation(50, 50);
 
         boardFrame.setVisible(true);
